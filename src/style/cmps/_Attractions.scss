@@ -1,0 +1,50 @@
+section.attractions-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100vh;
+  position: relative;
+  .attraction {
+    border-bottom: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+
+    h1 {
+      width: 40%;
+      font-size: 1.2rem;
+    }
+
+    img {
+      width: 100px;
+      height: 50px;
+      transition-duration: 0.1s;
+    }
+
+    &:hover {
+      display: flex;
+      border-bottom: 1px solid black;
+      cursor: pointer;
+      align-items: center;
+      justify-content: space-around;
+
+      h1 {
+        width: 40%;
+        font-size: 1.5rem;
+      }
+    }
+
+    &.active {
+      background: rgb(56, 184, 105);
+      transition-duration: 0.3s;
+    }
+  }
+}
+
+.dsdas {
+  position: absolute;
+}

@@ -1,0 +1,39 @@
+body,
+html,
+p,
+button,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow-x: hidden;
+}
+
+main.app-container {
+  display: flex;
+}
+
+.gm-style-iw-d {
+  width: 450px;
+  overflow: hidden;
+}
+
+.mask{
+  width: 100%;
+  height: 200px;
+  background-color: #25568f;
+}
+
+@media only screen and (max-width: 480px) {
+  .gm-style-iw-d {
+    width: 200px;
+    overflow-x: hidden;
+  }
+}

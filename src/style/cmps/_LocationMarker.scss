@@ -1,0 +1,86 @@
+.location-marker-container {
+  margin: 5px;
+  display: flex;
+  justify-content: space-around;
+  img {
+    margin: 10px;
+    height: 100px;
+  }
+  .location-marker {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    .info-icon{
+
+      &:hover{
+        color: rgb(200, 142, 35);
+      }
+    }
+
+    h5 {
+      min-width: 200px;
+      text-align: center;
+    }
+.btn-groups{
+max-width: 150px;
+  button {
+    margin: 5px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    min-width: 155px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+}
+  }
+}
+
+.google-info-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+@media only screen and (max-width: 480px) {
+
+  .location-marker-container {
+    max-width: 200px;
+    flex-direction: column;
+    align-items: flex-start;
+    img{
+      height: 70px;
+      width: 150px;
+      margin: 5;
+    }
+    .location-marker {
+      display: flex;
+      align-items: flex-start;
+
+
+      .info-icon{
+        font-size: 20px;
+      }
+      h5{
+        font-size: 15px;
+       width: 200px;
+       min-width: 50px;
+     }
+
+     .btn-groups{
+       width: 15%;
+      button {
+        font-size: 15px;
+        min-width: 50px;
+        width: 150px;
+        padding: 5px;
+      }
+
+     }
+    }
+  }
+}
