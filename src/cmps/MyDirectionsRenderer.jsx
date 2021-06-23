@@ -36,7 +36,6 @@ const MyDirectionsRenderer = (props) => {
 
             },
             async (result, status) => {
-
                 if (status === google.maps.DirectionsStatus.OK) {
                     await setDirections(result);
                 } else {
@@ -57,10 +56,6 @@ const MyDirectionsRenderer = (props) => {
                     clickable: true,
                     zIndex: 3
                 }}
-
-
-
-
                 panel={document.querySelector('.right-panel')}
                 directions={directions} />}
             <div className="right-panel-container">

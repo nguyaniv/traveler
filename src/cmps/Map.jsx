@@ -19,6 +19,7 @@ const Map = ({ styles, center, zoom }) => {
     const centerLocation = (location) => {
         dispatch(setCorinates(location))
     }
+
     const routes = useSelector(selectRoutes)
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -26,11 +27,9 @@ const Map = ({ styles, center, zoom }) => {
 
     })
     const containerStyle = {
-        width: '40vw',
+        width: window.innerWidth > 500 ? '40vw' : '100vw',
         height: '750px'
     };
-
-
     const onUnmount = React.useCallback(function callback(map) {
         setMap(null)
     }, [])
@@ -44,7 +43,6 @@ const Map = ({ styles, center, zoom }) => {
             await setMap(map)
             await setLoading(false)
         }
-
         catch {
             setError(true)
         }
@@ -76,6 +74,7 @@ const Map = ({ styles, center, zoom }) => {
                 )}
                 {attractions && attractions.map((location, idx) =>
                     < LocationMarker
+                        
                         key={idx}
                         isPopup={location.isPopup}
                         location={location}
@@ -89,9 +88,5 @@ const Map = ({ styles, center, zoom }) => {
         </div>
     )
         : <></>
-
 }
-
-
-
 export default React.memo(Map)

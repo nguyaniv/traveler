@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import IcelandHeader from '../cmps/IcelandHeader';
 import Mask from '../cmps/Mask';
 import { aroundIceland } from '../service/routeService'
-import { setRoute } from '../store/reducers/attractionsSlice'
+import { setRoute, disableCustomMode, enableCustomMode } from '../store/reducers/attractionsSlice'
 import Map from '../cmps/Map'
 import { useDispatch } from 'react-redux';
 import { Button } from 'react-bootstrap';
@@ -15,8 +15,6 @@ const Iceland = () => {
     const center = { lat: 64.96387075616835, lng: -18.676815850809533 }
     const zoom = { minZoom: 6, maxZoom: 7 }
 
-  
-
     return (
         <main className="iceland-page">
             <IcelandHeader />
@@ -28,9 +26,9 @@ const Iceland = () => {
                         <div className="card"
                             onClick={async () => {
                                 setCard(true)
+                                dispatch(disableCustomMode())
                                 dispatch(setRoute(aroundIceland))
                             }}>
-
                             <div className="img">
                                 <li>ICELAND</li>
                             </div>
@@ -42,9 +40,9 @@ const Iceland = () => {
                         <div className="card"
                             onClick={async () => {
                                 setCard(true)
+                                dispatch(enableCustomMode())
                                 dispatch(setRoute([]))
                             }}>
-
                             <div className="img">
                                 <li>ICELAND</li>
                             </div>
@@ -58,21 +56,21 @@ const Iceland = () => {
             }
             {card && <div className="map-route-container">
                 <div>
-
                     <Button onClick={async () => {
                         setCard(true)
+                        dispatch(disableCustomMode())
                         dispatch(setRoute(aroundIceland))
                     }} variant="primary">Around Iceland </Button>
                     <Button onClick={async () => {
                         setCard(true)
+                        dispatch(enableCustomMode())
                         dispatch(setRoute([]))
                     }} variant="info">Custom</Button>
                 </div>
                 <Map center={center} zoom={zoom} styles={IcelandStyle} />
-                <Reviews text={'around-iceland'}/>
+                <Reviews text={'around-iceland'} />
             </div>}
         </main >
     )
 }
-
 export default Iceland

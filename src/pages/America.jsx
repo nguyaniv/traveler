@@ -29,7 +29,6 @@ const America = () => {
                             onClick={async () => {
                                 dispatch(disableCustomMode())
                                 dispatch(setRoute(aroundAmerica))
-                                // dispatch(setCorinates(center))
                                 setCard(true)
                             }}>
                             <div className="img">
