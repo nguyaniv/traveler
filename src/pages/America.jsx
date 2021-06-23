@@ -2,7 +2,7 @@ import React from 'react'
 import AmericaHeader from '../cmps/AmericaHeader'
 import Mask from '../cmps/Mask';
 import { useDispatch } from 'react-redux';
-import { setRoute, setCorinates } from '../store/reducers/attractionsSlice'
+import { setRoute, setCorinates, disableCustomMode, enableCustomMode } from '../store/reducers/attractionsSlice'
 import { useState } from 'react'
 import Map from '../cmps/Map'
 import { americaStyle } from '../cmps/mapStyles'
@@ -27,6 +27,7 @@ const America = () => {
                     <div className="cards-container">
                         <div className="card"
                             onClick={async () => {
+                                dispatch(disableCustomMode())
                                 dispatch(setRoute(aroundAmerica))
                                 // dispatch(setCorinates(center))
                                 setCard(true)
@@ -41,6 +42,7 @@ const America = () => {
                         </div>
                         <div className="card"
                             onClick={async () => {
+                                dispatch(enableCustomMode())
                                 dispatch(setRoute([]))
                                 dispatch(setCorinates(center))
                                 setCard(true)
@@ -60,12 +62,14 @@ const America = () => {
                 <div>
                     <Button onClick={async () => {
                         setCard(true)
+                        dispatch(disableCustomMode())
                         dispatch(setRoute(aroundAmerica))
                         dispatch(setCorinates(center))
                     }} variant="primary">Around America </Button>
                     <Button onClick={async () => {
 
                         setCard(true)
+                        dispatch(enableCustomMode())
                         dispatch(setCorinates(center))
                         dispatch(setRoute([]))
                     }} variant="info">Custom</Button>

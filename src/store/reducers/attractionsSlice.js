@@ -9,6 +9,7 @@ export const attractionsSlice = createSlice({
     },
     locations: [],
     isModal: false,
+    isCustom: true,
     routes: [],
   },
   reducers: {
@@ -21,6 +22,12 @@ export const attractionsSlice = createSlice({
 
     setLocations: (state, { payload }) => {
       state.locations = payload;
+    },
+    enableCustomMode: (state, { payload }) => {
+      state.isCustom = true;
+    },
+    disableCustomMode: (state, { payload }) => {
+      state.isCustom = false;
     },
     selectLocation: (state, { payload }) => {
       const location = state.locations[payload];
@@ -75,6 +82,8 @@ export const addToRouteAsync = (state, action) => async (dispatch) => {
 };
 
 export const {
+  enableCustomMode,
+  disableCustomMode,
   setLocations,
   selectLocation,
   showModal,
@@ -90,4 +99,5 @@ export const selectAttractions = (state) => state.attractions.locations;
 export const selectModal = (state) => state.attractions.isModal;
 export const selectRoutes = (state) => state.attractions.routes;
 export const selectCordinates = (state) => state.attractions.cordinates;
+export const selectIsCustom = (state) => state.attractions.isCustom;
 export default attractionsSlice.reducer;

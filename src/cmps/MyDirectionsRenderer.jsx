@@ -1,6 +1,6 @@
 /* global google */
 import { DirectionsRenderer, InfoWindow } from '@react-google-maps/api';
-import { selectRoutes } from '../store/reducers/attractionsSlice'
+import { selectRoutes, selectIsCustom } from '../store/reducers/attractionsSlice'
 import { useSelector } from 'react-redux'
 import React from 'react'
 import { useState, useEffect } from 'react'
@@ -10,6 +10,7 @@ const MyDirectionsRenderer = (props) => {
     const [directions, setDirections] = useState(null);
     const [isAlternativeWay, setIsAlternativeWay] = useState(false)
     const routes = useSelector(selectRoutes)
+    const isCustom = useSelector(selectIsCustom)
     const { travelMode } = props;
     const [isInstructionsHidden, setisInstructionsHidden] = useState(false)
 
@@ -68,13 +69,15 @@ const MyDirectionsRenderer = (props) => {
                 <div className={isInstructionsHidden ? "right-panel" : 'right-panel hidden'}>
                 </div>
             </div>
-            <div className="alternative-way">
-                <h5>Optimize Route</h5>
-                <div >
-                    {isAlternativeWay && <Button onClick={() => setIsAlternativeWay(false)} variant="success">Enabled</Button>}
-                    {!isAlternativeWay && <Button onClick={() => setIsAlternativeWay(true)} variant="secondary">Disabled</Button>}
+            {isCustom &&
+                <div className="alternative-way">
+                    <h5>Optimize Route</h5>
+                    <div >
+                        {isAlternativeWay && <Button onClick={() => setIsAlternativeWay(false)} variant="success">Enabled</Button>}
+                        {!isAlternativeWay && <Button onClick={() => setIsAlternativeWay(true)} variant="secondary">Disabled</Button>}
+                    </div>
                 </div>
-            </div>
+            }
         </React.Fragment>
     );
 }
