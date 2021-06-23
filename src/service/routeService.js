@@ -38,10 +38,44 @@ export const aroundIceland = [
 ]
 
 export const aroundAmerica = [
+       {
+        location: {
+            lat: 43.09052721802271,
+            lng: -79.08631915095762,
+        },
+        stopover: true
+
+    },
+       {
+        location: {
+            lat: 37.86537318046389,
+            lng: -85.917857776848,
+        },
+        stopover: true
+
+    },
     {
         location: {
             lat: 36.10220158258616,
             lng: -112.10988666010485
+        },
+        stopover: true
+
+    },
+  
+    {
+        location: {
+            lat:45.40260698285004,
+            lng: -122.54736471399973,
+        },
+        stopover: true
+
+    },
+
+    {
+        location: {
+            lat: 44.42772161098787,
+            lng: -110.61850510542853,
         },
         stopover: true
 
@@ -54,37 +88,7 @@ export const aroundAmerica = [
         stopover: true
 
     },
-    {
-        location: {
-            lat: 41.92971697074962,
-            lng: -124.12219360261933,
-        },
-        stopover: true
-
-    },
-    {
-        location: {
-            lat: 44.42772161098787,
-            lng: -110.61850510542853,
-        },
-        stopover: true
-
-    },
-    {
-        location: {
-            lat: 43.09052721802271,
-            lng: -79.08631915095762,
-        },
-        stopover: true
-
-    },
-    {
-        location: {
-            lat: 37.86537318046389,
-            lng: -85.917857776848,
-        },
-        stopover: true
-
-    },
+ 
+ 
 ]
 

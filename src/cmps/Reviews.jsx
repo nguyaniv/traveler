@@ -3,11 +3,12 @@ import firebase from '../firebase/firebase';
 
 const Reviews = ({ text }) => {
 
-  const aroundIcelandRoute = firebase.firestore().collection(text)
   const [reviews, setReviews] = useState(null)
 
   useEffect(() => {
     if (text) {
+      const aroundIcelandRoute = firebase.firestore().collection(text)
+
       aroundIcelandRoute.get().then(async (querySnapshot) => {
         const reviews = []
         querySnapshot.forEach(async (doc) => {
@@ -16,7 +17,7 @@ const Reviews = ({ text }) => {
         await setReviews(reviews)
       })
     }
-  }, [aroundIcelandRoute, text])
+  }, [])
   return (
     <section className="comments-form-container">
       <form className="comments-form">

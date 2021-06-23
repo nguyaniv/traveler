@@ -28,7 +28,7 @@ const America = () => {
                         <div className="card"
                             onClick={async () => {
                                 dispatch(setRoute(aroundAmerica))
-                                dispatch(setCorinates(center))
+                                // dispatch(setCorinates(center))
                                 setCard(true)
                             }}>
                             <div className="img">
@@ -71,7 +71,7 @@ const America = () => {
                     }} variant="info">Custom</Button>
                 </div>
                 <Map center={center} zoom={zoom} styles={americaStyle} />
-                <Reviews />
+                <Reviews text={'america'} />
             </div>}
         </main>
     )
