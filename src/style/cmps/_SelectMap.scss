@@ -1,0 +1,110 @@
+section.home-section {
+  width: 1920px;
+  display: flex !important;
+  justify-content: space-around;
+
+  .center-headers {
+    display: flex;
+    align-items: center;
+    .home-section {
+      height: 426px;
+      width: 640px;
+      margin: 0 50px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      h2 {
+        color: rgb(0, 0, 0);
+      }
+
+      a {
+        margin-bottom: 10%;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid black;
+      }
+      &.iceland {
+        background-image: url("../images/home-iceland-header.jpg");
+        filter: brightness(80%);
+
+        a {
+          transition-duration: 0.3s;
+          &:nth-of-type(1) {
+            color: brown;
+            background-color: rgb(61, 223, 175);
+          }
+          &:nth-of-type(2) {
+            color: rgb(255, 255, 255);
+            background-color: rgb(78, 68, 214);
+            padding: 10px;
+          }
+
+          &:hover {
+            background-color: #000;
+            color: #fff;
+          }
+        }
+        &:hover {
+          filter: brightness(105%);
+        }
+      }
+      &.america {
+        filter: brightness(80%);
+        background-image: url("../images/home-america-header.jpg");
+
+        a {
+          transition-duration: 0.3s;
+
+          &:nth-of-type(1) {
+            color: brown;
+            background-color: cornsilk;
+            padding: 10px;
+          }
+          &:nth-of-type(2) {
+            color: brown;
+            background-color: rgb(223, 181, 14);
+            padding: 10px;
+          }
+          &:hover {
+            background-color: #000;
+            color: #fff;
+          }
+        }
+        &:hover {
+          filter: brightness(105%);
+        }
+      }
+    }
+  }
+}
+
+// links
+
+.home-section .iceland {
+  margin-top: 10%;
+}
+
+a.main-section-link {
+  text-decoration: none !important;
+  padding: 5px;
+}
+
+.usa-svg {
+  filter: grayscale(100%);
+  &:hover {
+    filter: invert(0.18) sepia(0.5) saturate(7.1) hue-rotate(43.2deg) brightness(0.57);
+
+
+  }
+}
+
+.iceland-svg{
+  &:hover{
+    filter: invert(0.18) sepia(1) saturate(7.1) hue-rotate(111.6deg) brightness(0.75);
+
+  }
+}

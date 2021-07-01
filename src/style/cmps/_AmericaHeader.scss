@@ -1,22 +1,22 @@
 header.america-header {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  .america-header-image {
+    background-image: url("../images/america-page-header.jpg");
+    background-size: cover;
+    height: 700px;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    width: 100vw;
-    .america-header-image {
-      background-image: url("../images/america-page-header.jpg");
-      background-size: cover;
-      height: 700px;
-      width: 100vw;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      h1 {
-        color: #fff;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        letter-spacing: 5px;
-      }
+    align-items: center;
+    h1 {
+      color: #fff;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 5px;
     }
   }
-  
+}
+

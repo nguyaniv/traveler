@@ -1,14 +1,15 @@
 .comments-form-container {
   display: flex;
   justify-content: center;
-  max-width: 40vw;
+  flex-direction: column;
+  max-width: 45vw;
   background-color: rgb(250, 246, 246);
   .comments-form {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    width: 35vw;
+    width: 40vw;
     height: 400px;
     input {
       outline: none;
@@ -27,8 +28,7 @@
         transition-duration: 0.3s;
         &:hover {
           background-color: rgb(48, 212, 26);
-          color:black;
-
+          color: black;
         }
       }
     }
@@ -39,7 +39,6 @@
       resize: none;
       outline: none;
       background-color: rgb(250, 246, 246);
-      
     }
   }
 
@@ -49,13 +48,26 @@
     align-items: center;
     margin: 10px;
     .review {
-      border: 1px solid steelblue;
-      border-radius: 10px;
-      background-color: rgb(182, 204, 178);
-      width: 100%;
-      padding: 5px;
+      position: relative;
+      background: #7ab3b8;
+      border-radius: 0.4em;
       margin: 10px;
-      min-width: 250px;
+      width: 50%;
+      padding: 5px;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-right-color: #7ab3b8;
+        border-left: 0;
+        border-top: 0;
+        margin-top: -10px;
+        margin-left: -20px;
+      }
     }
   }
 }

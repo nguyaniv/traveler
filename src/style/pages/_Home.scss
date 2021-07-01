@@ -1,0 +1,13 @@
+main.home-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .main-home-container {
+    width: 1920px;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+  }
+}

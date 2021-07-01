@@ -12,15 +12,38 @@ import icon from '../style/icons/down-left.png'
 
 
 
-const LocationMarker = ({ onClick, location, idx ,Map}) => {
+const LocationMarker = ({ onClick, location, idx, Map, currentZoom }) => {
   const [popup, setPopup] = useState(false)
   const isCustom = useSelector(selectIsCustom)
   const dispatch = useDispatch()
+  const [zoomLat, setZoomLat] = useState(null)
+  const [zoomLng, setZoomLng] = useState(null)
   const showPopup = () => {
     setPopup(true)
   }
+  useEffect(() => {
+    switch (currentZoom) {
+      case 7:
+        setZoomLat(0.15)
+        setZoomLng(0.2)
+        break;
+      case 6:
+        setZoomLat(0.35)
+        setZoomLng(0.35)
+        break;
+      case 4:
+        setZoomLat(2.7)
+        setZoomLng(1.5)
+        break;
+      case 5:
+        setZoomLat(1.35)
+        setZoomLng(0.75)
+        break;
 
-
+      default:
+        break;
+    }
+  }, [currentZoom])
   return (
     <div>
       {popup &&
@@ -56,9 +79,10 @@ const LocationMarker = ({ onClick, location, idx ,Map}) => {
         </InfoWindow>
       }
       <Marker
-        position={{ lat: location.lat+0.15, lng: location.lng +0.2 }}
+        position={{ lat: location.lat + zoomLat, lng: location.lng + zoomLng }
+        }
         icon={{
-          url:icon,
+          url: icon,
         }}
         onMouseOver={() => showPopup()}
         onClick={() => {

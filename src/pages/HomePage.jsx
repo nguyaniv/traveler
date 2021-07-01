@@ -1,10 +1,16 @@
 import React from 'react'
-import Header from '../cmps/Header'
+import SelectMap from '../cmps/SelectMap'
+import HomeHeader from '../cmps/HomeHeader'
+import Stages from '../cmps/Stages'
 const HomePage = () => {
     return (
-        <Header/>
-            
-       
+        <main className="home-main" >
+            <div className="main-home-container">
+                <HomeHeader />
+                <Stages />
+                <SelectMap />
+            </div>
+        </main>
     )
 }
 

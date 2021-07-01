@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import firebase from '../firebase/firebase';
 
 const Reviews = ({ text }) => {
 
   const [reviews, setReviews] = useState(null)
+  const nameRef = useRef(null);
+  const textRef = useRef(null)
 
   useEffect(() => {
     if (text) {
-      const aroundIcelandRoute = firebase.firestore().collection(text)
+      const inheritReviews = firebase.firestore().collection(text)
 
-      aroundIcelandRoute.get().then(async (querySnapshot) => {
+      inheritReviews.get().then(async (querySnapshot) => {
         const reviews = []
         querySnapshot.forEach(async (doc) => {
           reviews.push(doc.data())
@@ -18,13 +20,32 @@ const Reviews = ({ text }) => {
       })
     }
   }, [])
+
+  const submitComment = () => {
+    let Rname = nameRef.current.value
+    let Rtext = textRef.current.value
+    const docData = {
+      name: Rname,
+      text: Rtext
+    }
+    const inheritReviews = firebase.firestore().collection(text)
+    inheritReviews.add(docData)
+    inheritReviews.get().then(async(querySnapshot)=>{
+      const reviews = []
+        querySnapshot.forEach(async (doc) => {
+          reviews.push(doc.data())
+        })
+        await setReviews(reviews)
+    })
+  }
+
   return (
     <section className="comments-form-container">
       <form className="comments-form">
         <h4>Add review</h4>
-        <input type="text" placeholder="name" />
-        <textarea placeholder="type your review here" />
-        <input value="Submit" type="button" />
+        <input ref={nameRef} type="text" placeholder="name" />
+        <textarea ref={textRef} placeholder="type your review here" />
+        <input onClick={submitComment} value="submit" type="button" />
       </form>
 
       <div className="reviews-container">

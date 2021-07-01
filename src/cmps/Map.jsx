@@ -14,7 +14,8 @@ const Map = ({ styles, center, zoom }) => {
     const attractions = useSelector(selectAttractions);
     const cordinates = useSelector(selectCordinates);
     const dispatch = useDispatch()
-    const [, setMap] = useState(null)
+    const [map, setMap] = useState(null)
+    const [currentZoom,setCurrentZoom] = useState(null)
     const [error, setError] = useState(null);
     const centerLocation = (location) => {
         dispatch(setCorinates(location))
@@ -55,6 +56,12 @@ const Map = ({ styles, center, zoom }) => {
         minZoom: zoom.minZoom,
         disableDefaultUI: true,
     }
+    async function handleZoomChanged() {
+        await setCurrentZoom(this.getZoom());
+    }
+
+
+
 
     return isLoaded && cordinates ? (
         <div className="map">
@@ -64,6 +71,7 @@ const Map = ({ styles, center, zoom }) => {
                 center={cordinates}
                 options={option}
                 onUnmount={onUnmount}
+                onZoomChanged={handleZoomChanged}
                 zoom={4}
             >
                 {routes && routes.length > 0 && (
@@ -74,7 +82,7 @@ const Map = ({ styles, center, zoom }) => {
                 )}
                 {attractions && attractions.map((location, idx) =>
                     < LocationMarker
-                        
+                    currentZoom={currentZoom}
                         key={idx}
                         isPopup={location.isPopup}
                         location={location}
