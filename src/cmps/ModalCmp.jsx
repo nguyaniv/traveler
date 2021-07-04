@@ -1,19 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Modal } from 'react-responsive-modal';
-import { selectModal, showModal, } from '../store/reducers/attractionsSlice'
+import { selectModal, showModal, selectModalInfo } from '../store/reducers/attractionsSlice'
 import { useSelector, useDispatch } from 'react-redux';
-
 import 'react-responsive-modal/styles.css';
-
 import React from 'react'
-
-
-
-
 
 const ModalCmp = () => {
     const [open, setOpen] = useState(false);
     const modal = useSelector(selectModal)
+    const modalInfo = useSelector(selectModalInfo)
     const dispatch = useDispatch()
 
 
@@ -31,12 +26,17 @@ const ModalCmp = () => {
         if (modal) setOpen(true)
     }, [modal])
 
+
     return (
         <div>
             <Modal showCloseIcon={true} open={open} onClose={onCloseModal} center>
-                <div className="modal-container">
-                    <h1>hi</h1>
-                </div>
+                {modalInfo &&
+                    <div className="modal-container">
+                        <h1>{modalInfo.name}</h1>
+                        <img src={modalInfo.img} alt="img" />
+                    </div>
+                }
+
             </Modal>
         </div>
     )

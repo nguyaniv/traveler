@@ -32,11 +32,11 @@ const America = () => {
                                 setCard(true)
                             }}>
                             <div className="img">
-                                <li>AMERICA</li>
+                                <li>USA</li>
                             </div>
                             <div className="details">
                                 <span className="in-middle-text">CLASSIC</span>
-                                <h3>Around? America</h3>
+                                <h3>Around USA</h3>
                             </div>
                         </div>
                         <div className="card"
@@ -64,7 +64,7 @@ const America = () => {
                         dispatch(disableCustomMode())
                         dispatch(setRoute(aroundAmerica))
                         dispatch(setCorinates(center))
-                    }} variant="primary">Around America </Button>
+                    }} variant="primary">Around USA </Button>
                     <Button onClick={async () => {
 
                         setCard(true)

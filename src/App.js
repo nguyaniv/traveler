@@ -29,7 +29,7 @@ function App() {
     <Router>
       <Navbar />
       <main className="app-container">
-        {/* <ModalCmp /> */}
+        <ModalCmp />
         <Switch>
           <Route path="/iceland" component={Iceland} />
           <Route path="/america" component={America} />

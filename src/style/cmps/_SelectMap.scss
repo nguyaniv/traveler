@@ -94,6 +94,7 @@ a.main-section-link {
 }
 
 .usa-svg {
+  height: 549px;
   filter: grayscale(100%);
   &:hover {
     filter: invert(0.18) sepia(0.5) saturate(7.1) hue-rotate(43.2deg) brightness(0.57);

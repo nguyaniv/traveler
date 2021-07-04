@@ -9,6 +9,7 @@ export const attractionsSlice = createSlice({
     },
     locations: [],
     isModal: false,
+    modal: null,
     isCustom: true,
     routes: [],
   },
@@ -18,6 +19,9 @@ export const attractionsSlice = createSlice({
         lat: payload.lat,
         lng: payload.lng,
       };
+    },
+    setAPIkey: (state, { payload }) => {
+      state.apiKey = payload;
     },
 
     setLocations: (state, { payload }) => {
@@ -45,6 +49,7 @@ export const attractionsSlice = createSlice({
 
     showModal: (state, { payload }) => {
       state.isModal = !state.isModal;
+      state.modal = payload;
     },
 
     addToRoute: (state, { payload }) => {
@@ -97,6 +102,7 @@ export const {
 
 export const selectAttractions = (state) => state.attractions.locations;
 export const selectModal = (state) => state.attractions.isModal;
+export const selectModalInfo = (state) => state.attractions.modal;
 export const selectRoutes = (state) => state.attractions.routes;
 export const selectCordinates = (state) => state.attractions.cordinates;
 export const selectIsCustom = (state) => state.attractions.isCustom;

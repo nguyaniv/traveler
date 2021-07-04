@@ -3,7 +3,7 @@ import LocationMarker from './LocationMarker';
 import React from 'react'
 import { selectRoutes, selectAttractions, selectCordinates, setCorinates } from '../store/reducers/attractionsSlice'
 import { useSelector, useDispatch } from 'react-redux'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
     GoogleMap, useJsApiLoader
 } from '@react-google-maps/api';
@@ -15,17 +15,16 @@ const Map = ({ styles, center, zoom }) => {
     const cordinates = useSelector(selectCordinates);
     const dispatch = useDispatch()
     const [map, setMap] = useState(null)
-    const [currentZoom,setCurrentZoom] = useState(null)
+    const [currentZoom, setCurrentZoom] = useState(null)
     const [error, setError] = useState(null);
+
     const centerLocation = (location) => {
         dispatch(setCorinates(location))
     }
-
     const routes = useSelector(selectRoutes)
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
-
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY
     })
     const containerStyle = {
         width: window.innerWidth > 500 ? '40vw' : '100vw',
@@ -60,10 +59,8 @@ const Map = ({ styles, center, zoom }) => {
         await setCurrentZoom(this.getZoom());
     }
 
-
-
-
     return isLoaded && cordinates ? (
+
         <div className="map">
             <GoogleMap
                 mapContainerStyle={containerStyle}
@@ -82,7 +79,7 @@ const Map = ({ styles, center, zoom }) => {
                 )}
                 {attractions && attractions.map((location, idx) =>
                     < LocationMarker
-                    currentZoom={currentZoom}
+                        currentZoom={currentZoom}
                         key={idx}
                         isPopup={location.isPopup}
                         location={location}
@@ -94,6 +91,7 @@ const Map = ({ styles, center, zoom }) => {
                 )}
             </GoogleMap>
         </div>
+
     )
         : <></>
 }

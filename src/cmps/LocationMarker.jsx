@@ -1,10 +1,9 @@
 
-/* global google */
 
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Marker, InfoWindow } from '@react-google-maps/api'
-import { showModal, selectLocationAsync, addToRoute, removeFromRoute, unSelectLocationAsync, selectIsCustom } from '../store/reducers/attractionsSlice'
+import { showModal, selectLocationAsync, addToRoute, removeFromRoute, unSelectLocationAsync, selectIsCustom,showPopup } from '../store/reducers/attractionsSlice'
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
@@ -57,7 +56,7 @@ const LocationMarker = ({ onClick, location, idx, Map, currentZoom }) => {
           <div className="location-marker-container">
             <div className="location-marker">
               <h5>{location.name}   <FontAwesomeIcon className="info-icon"
-                onClick={() => dispatch(showModal(idx))} style={{ cursor: "pointer" }} icon={faInfoCircle} /> </h5>
+                onClick={() => dispatch(showModal(location))} style={{ cursor: "pointer" }} icon={faInfoCircle} /> </h5>
               {isCustom === true && <div className="btn-groups">
                 {location.isMarked && <Button onClick={async () => {
                   await dispatch(removeFromRoute(location))
