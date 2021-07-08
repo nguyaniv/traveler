@@ -16,7 +16,6 @@ body {
   overflow-x: hidden;
 }
 
-
 main.app-container {
   display: flex;
 }
@@ -26,11 +25,7 @@ main.app-container {
   overflow: hidden;
 }
 
-.mask{
-  width: 100%;
-  height: 200px;
-  background-color: #25568f;
-}
+
 
 @media only screen and (max-width: 480px) {
   .gm-style-iw-d {
@@ -38,8 +33,6 @@ main.app-container {
     overflow-x: hidden;
   }
 }
-
-
 
 .my-marker {
   .marker {
@@ -59,8 +52,7 @@ main.app-container {
   }
 }
 
-
-.center-text{
+.center-text {
   display: flex;
   flex-direction: column;
   text-align: center;

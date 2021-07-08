@@ -21,8 +21,8 @@ const Iceland = () => {
             <Mask />
             {!card &&
                 <div>
-                    <h1>POPULAR ROUTES</h1>
                     <div className="cards-container">
+                    <h1>POPULAR ROUTES</h1>
                         <div className="card"
                             onClick={async () => {
                                 setCard(true)

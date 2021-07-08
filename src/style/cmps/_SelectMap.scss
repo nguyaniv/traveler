@@ -97,15 +97,43 @@ a.main-section-link {
   height: 549px;
   filter: grayscale(100%);
   &:hover {
-    filter: invert(0.18) sepia(0.5) saturate(7.1) hue-rotate(43.2deg) brightness(0.57);
-
-
+    filter: invert(0.18) sepia(0.5) saturate(7.1) hue-rotate(43.2deg)
+      brightness(0.57);
   }
 }
 
-.iceland-svg{
-  &:hover{
-    filter: invert(0.18) sepia(1) saturate(7.1) hue-rotate(111.6deg) brightness(0.75);
+.iceland-svg {
+  &:hover {
+    filter: invert(0.18) sepia(1) saturate(7.1) hue-rotate(111.6deg)
+      brightness(0.75);
+  }
+}
+
+@media screen and(max-width: 960px) {
+  section.home-section {
+    width: 100%;
+    height: 600px;
+    .center-headers {
+      flex-direction: column;
+      .home-section {
+        height: 900px;
+        flex-direction: flex-start;
+
+        
+
+      }
+    }
+  }
+  .usa-svg{
+    width: 350px;
+    height: 200px;
+    margin: 10px;
+  }
+
+  .iceland-svg {
+    width: 350px;
+    height: 250px;
+    margin: 10px;
 
   }
 }

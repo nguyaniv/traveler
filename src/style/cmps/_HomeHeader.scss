@@ -6,3 +6,16 @@ header.home-header {
 //   background-size: cover;
   background-position: center;
 }
+
+
+
+
+
+
+
+@media screen and(max-width: 960px){
+  header.home-header {
+    height: 300px;
+    background-size: contain;
+  }
+}

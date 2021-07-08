@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import usa from '../style/map/usa.svg'
 import iceland from '../style/map/Iceland.svg'
 const SelectMap = () => {
@@ -11,7 +11,7 @@ const SelectMap = () => {
 
                 <div className="flex-col center-text">
                     <h3 className="h3-border-radius" >USA</h3>
-                    <Link to="/america">
+                    <Link to="/usa">
                         <img className="usa-svg" src={usa} alt="test" />
                     </Link>
                 </div>

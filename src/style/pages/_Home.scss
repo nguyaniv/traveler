@@ -3,11 +3,16 @@ main.home-main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-
+  overflow-x: hidden;
   .main-home-container {
     width: 1920px;
     flex-direction: column;
     align-items: center;
     // border: 1px solid black;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .main-home-container {
+    width: 100%;
   }
 }

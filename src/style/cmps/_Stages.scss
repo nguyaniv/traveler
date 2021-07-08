@@ -1,6 +1,6 @@
 .stages {
   margin: 150px 0;
-  height: 400px;
+  height: 250px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -20,5 +20,16 @@
     list-style: none;
     font-size: 2rem;
     font-family: cursive;
+  }
+}
+
+
+@media screen and(max-width: 960px){
+  .stages{
+    margin: 50px 0;
+    height: 250px;
+    li{
+      font-size: 1.2rem;
+    }
   }
 }
